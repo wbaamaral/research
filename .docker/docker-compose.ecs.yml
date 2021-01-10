@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  research:
+    image: paulosalonso/research:1.0.0
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_PROFILES_ACTIVE: postgresql
+      SPRING_DATASOURCE_URL: jdbc:postgresql://research.csublhgcgy7h.us-west-2.rds.amazonaws.com/research
+      SPRING_DATASOURCE_USERNAME: paulosalonso
+      SPRING_DATASOURCE_PASSWORD: DJSQxz3dj25!
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: research
+        awslogs-region: us-west-2
+        awslogs-stream-prefix: research
